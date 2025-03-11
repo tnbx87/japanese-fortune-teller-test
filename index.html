@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>日本の占い - Japanese Fortune Telling</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        
+        header {
+            background-color: #8C0303;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+        
+        nav {
+            background-color: #E5E5E5;
+            padding: 0.5rem;
+            text-align: center;
+        }
+        
+        nav a {
+            color: #333;
+            text-decoration: none;
+            margin: 0 1rem;
+            font-weight: bold;
+        }
+        
+        nav a:hover {
+            color: #8C0303;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .fortune-section {
+            background-color: white;
+            border-radius: 5px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .fortune-type {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        
+        .fortune-card {
+            width: 30%;
+            background-color: #FAFAFA;
+            border-radius: 5px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            text-align: center;
+            box-shadow: 0 2px 3px rgba(0,0,0,0.1);
+        }
+        
+        .fortune-card img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+        
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .language-selector {
+            text-align: right;
+            padding: 0.5rem;
+            background-color: #333;
+            color: white;
+        }
+        
+        .language-selector select {
+            padding: 0.3rem;
+            border-radius: 3px;
+        }
+        
+        @media (max-width: 768px) {
+            .fortune-card {
+                width: 45%;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .fortune-card {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="language-selector">
+        <select id="language">
+            <option value="ja">日本語</option>
+            <option value="en">English</option>
+            <option value="fr">Français</option>
+            <option value="es">Español</option>
+            <option value="zh">中文</option>
+        </select>
+    </div>
+
+    <header>
+        <h1>日本の占い・URANAI</h1>
+        <p>古来から伝わる日本の伝統占術</p>
+    </header>
+    
+    <nav>
+        <a href="#about">占いについて</a>
+        <a href="#omikuji">おみくじ</a>
+        <a href="#zodiac">干支占い</a>
+        <a href="#blood-type">血液型占い</a>
+        <a href="#contact">お問い合わせ</a>
+    </nav>
+    
+    <div class="container">
+        <section id="about" class="fortune-section">
+            <h2>日本の占いについて</h2>
+            <p>日本には古くから伝わる様々な占いの文化があります。神社でのおみくじ、干支（えと）による占い、そして現代的な血液型占いなど、日本人の生活に深く根付いています。</p>
+            <p>当サイトでは、海外の皆様に日本の占い文化を体験していただけるよう、様々な占術をご紹介しています。</p>
+            <p><strong>English:</strong> Japan has a rich tradition of fortune telling, from temple oracles (Omikuji) to zodiac signs (Eto) and modern blood type personality analysis. This site introduces Japanese divination culture to visitors from around the world.</p>
+        </section>
+        
+        <section id="omikuji" class="fortune-section">
+            <h2>おみくじ</h2>
+            <p>おみくじは神社やお寺で引く紙の占いです。大吉（だいきち）から大凶（だいきょう）まで、運勢が書かれています。</p>
+            <p><strong>English:</strong> Omikuji are paper fortunes found at Japanese shrines and temples, ranging from "Great Blessing" to "Great Curse".</p>
+            
+            <div class="fortune-card">
+                <h3>今日のおみくじを引く</h3>
+                <img src="/api/placeholder/200/200" alt="おみくじのイメージ">
+                <button id="draw-omikuji">おみくじを引く / Draw Fortune</button>
+                <div id="omikuji-result"></div>
+            </div>
+        </section>
+        
+        <section id="zodiac" class="fortune-section">
+            <h2>干支占い (えと)</h2>
+            <p>干支は12年周期の動物による占いで、生まれ年によって異なる性格や運勢があるとされています。</p>
+            <p><strong>English:</strong> The Japanese zodiac (Eto) is a 12-year cycle represented by animals. Your birth year determines your zodiac sign and associated traits.</p>
+            
+            <div class="fortune-type">
+                <div class="fortune-card">
+                    <h3>子 (ねずみ / Rat)</h3>
+                    <img src="/api/placeholder/150/150" alt="ねずみのイラスト">
+                    <p>機知に富み、適応力があり、素早い</p>
+                </div>
+                <div class="fortune-card">
+                    <h3>丑 (うし / Ox)</h3>
+                    <img src="/api/placeholder/150/150" alt="牛のイラスト">
+                    <p>勤勉で、頼りになり、忍耐強い</p>
+                </div>
+                <div class="fortune-card">
+                    <h3>寅 (とら / Tiger)</h3>
+                    <img src="/api/placeholder/150/150" alt="虎のイラスト">
+                    <p>勇敢で、情熱的で、自信に満ちている</p>
+                </div>
+            </div>
+            <p><a href="#full-zodiac">すべての干支を見る / View all zodiac signs</a></p>
+        </section>
+        
+        <section id="blood-type" class="fortune-section">
+            <h2>血液型占い</h2>
+            <p>日本では血液型によって性格が異なると考えられています。これは日本で特に人気のある現代的な占いです。</p>
+            <p><strong>English:</strong> Blood type personality analysis is a modern form of fortune-telling particularly popular in Japan, where blood types are believed to determine personality traits.</p>
+            
+            <div class="fortune-type">
+                <div class="fortune-card">
+                    <h3>A型</h3>
+                    <p>几帳面、真面目、繊細</p>
+                    <p><small>Careful, earnest, sensitive</small></p>
+                </div>
+                <div class="fortune-card">
+                    <h3>B型</h3>
+                    <p>創造的、柔軟、マイペース</p>
+                    <p><small>Creative, flexible, individualistic</small></p>
+                </div>
+                <div class="fortune-card">
+                    <h3>O型</h3>
+                    <p>社交的、楽観的、リーダー気質</p>
+                    <p><small>Sociable, optimistic, leadership qualities</small></p>
+                </div>
+                <div class="fortune-card">
+                    <h3>AB型</h3>
+                    <p>理性的、複雑、カリスマ的</p>
+                    <p><small>Rational, complex, charismatic</small></p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="contact" class="fortune-section">
+            <h2>お問い合わせ / Contact</h2>
+            <p>日本の占いについてのご質問やご意見がございましたら、お気軽にお問い合わせください。</p>
+            <p><strong>English:</strong> If you have any questions or comments about Japanese fortune-telling, please feel free to contact us.</p>
+            <form>
+                <div>
+                    <label for="name">お名前 / Name:</label>
+                    <input type="text" id="name" name="name">
+                </div>
+                <div>
+                    <label for="email">メールアドレス / Email:</label>
+                    <input type="email" id="email" name="email">
+                </div>
+                <div>
+                    <label for="message">メッセージ / Message:</label>
+                    <textarea id="message" name="message" rows="5"></textarea>
+                </div>
+                <button type="submit">送信 / Submit</button>
+            </form>
+        </section>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 日本の占い・URANAI. All rights reserved.</p>
+    </footer>
+    
+    <script>
+        document.getElementById('draw-omikuji').addEventListener('click', function() {
+            const fortunes = [
+                { name: '大吉', nameEn: 'Great Blessing', description: '最高の運勢です！', descriptionEn: 'The best fortune!' },
+                { name: '中吉', nameEn: 'Middle Blessing', description: 'とても良い運勢です。', descriptionEn: 'Very good fortune.' },
+                { name: '小吉', nameEn: 'Small Blessing', description: '良い運勢です。', descriptionEn: 'Good fortune.' },
+                { name: '吉', nameEn: 'Blessing', description: '普通の良い運勢です。', descriptionEn: 'Regular good fortune.' },
+                { name: '末吉', nameEn: 'Future Blessing', description: '後に良いことがあります。', descriptionEn: 'Good things will come later.' },
+                { name: '凶', nameEn: 'Curse', description: '注意が必要です。', descriptionEn: 'Caution is needed.' },
+                { name: '大凶', nameEn: 'Great Curse', description: '大いに注意しましょう。', descriptionEn: 'Great caution is needed.' }
+            ];
+            
+            const randomFortune = fortunes[Math.floor(Math.random() * fortunes.length)];
+            
+            document.getElementById('omikuji-result').innerHTML = `
+                <div style="margin-top: 20px; padding: 15px; border: 1px solid #ddd; background-color: #f9f9f9;">
+                    <h4>${randomFortune.name} / ${randomFortune.nameEn}</h4>
+                    <p>${randomFortune.description}<br>${randomFortune.descriptionEn}</p>
+                </div>
+            `;
+        });
+        
+        // 言語切り替え機能のプレースホルダー（実際の実装はさらに複雑になります）
+        document.getElementById('language').addEventListener('change', function() {
+            alert('この機能は現在開発中です。/ This feature is currently under development.');
+        });
+    </script>
+</body>
+</html>
